@@ -1,24 +1,59 @@
-# README
+# テーブル設計
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## usersテーブル
+| Column             | Type       | Options                        |
+|:---                |:---        |:---                            |
+|nickname            |string      |null: false                     |
+|email               |string      |null: false, unique: true       |
+|encrypted_password  |string      |null: false                     |
+|first_name          |string      |null: false                     |
+|last_name           |string      |null: false                     |
+|first_name_kana     |string      |null: false                     |
+|last_name_kana      |string      |null: false                     |
+|date_of_birth       |date        |null: false                     |
 
-Things you may want to cover:
+### Association
+has_many :posts
 
-* Ruby version
+## adminテーブル（管理者機能実装予定）
+| Column             | Type       | Options                        |
+|:---                |:---        |:---                            |
+|email               |string      |null: false, unique: true       |
+|encrypted_password  |string      |null: false                     |
 
-* System dependencies
+### Association
+---
 
-* Configuration
+## postsテーブル
+| Column             | Type       | Options                        |
+|:---                |:---        |:---                            |
+|title               |string      |null: false                     |
+|article             |text        |null: false                     |
+|place               |string      |null: false                     |
+|price               |text        |                                |
+|person_id           |integer     |                                |
+|user                |references  |null: false, foreign_key: true  |
 
-* Database creation
+### Association
+has_many_attached :image
+belongs_to :user
 
-* Database initialization
+## goodsテーブル（いいね機能実装予定）
+| Column             | Type       | Options                        |
+|:---                |:---        |:---                            |
+|user_id             |references  |null: false                     |
+|post_id             |references  |null: false                     |
 
-* How to run the test suite
+### Association
+belongs_to :user
+belongs_to :post
 
-* Services (job queues, cache servers, search engines, etc.)
+## favoriteテーブル（お気に入り機能実装予定）
+| Column             | Type       | Options                        |
+|:---                |:---        |:---                            |
+|user_id             |references  |null: false                     |
+|post_id             |references  |null: false                     |
 
-* Deployment instructions
-
-* ...
+### Association
+belongs_to :user
+belongs_to :post
