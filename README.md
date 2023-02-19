@@ -21,7 +21,7 @@ has_many :posts
 |encrypted_password  |string      |null: false                     |
 
 ### Association
----
+-
 
 ## postsテーブル
 | Column             | Type       | Options                        |
