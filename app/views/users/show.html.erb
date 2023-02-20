@@ -10,7 +10,7 @@
 <div class="profile_image_size">
   <p>プロフィール画像<br>
   <% if @user.profile_image.present? %>
-    <%= image_tag @user.profile_image,size: '100x100' %>
+    <%= image_tag @user.profile_image, size: '100x100' %>
   <% else %>
     <%= image_tag "default_image.png", size: '100x100' %>
   <% end %>
