@@ -1,1 +1,25 @@
 ユーザー編集画面
+<h2>プロフィール編集</h2>
+<div class="items-sell-main">
+  <h2 class="items-sell-title">商品の情報を入力</h2>
+  <%= form_with model: @user, local: true do |f| %>
+
+    <div class="img-upload">
+      <div class="weight-bold-text">
+        イメージ画像
+        <span class="indispensable">必須</span>
+      </div>
+      <div class="click-upload">
+        <p>
+          クリックしてファイルをアップロード
+        </p>
+        <%= f.file_field :prolile_image, id:"item-image" %>
+      </div>
+    </div>
+
+    <div class="sell-btn-contents">
+      <%= f.submit "変更する" ,class:"sell-btn" %>
+      <%=link_to 'もどる', user_path(@user.id), class:"back-btn" %>
+    </div>
+  <% end %>
+</div>
