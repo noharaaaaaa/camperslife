@@ -1,3 +1,5 @@
+<%= render "shared/second-header"%>
+
 ユーザー詳細画面
 <%# ユーザー情報 %>
 <p><%= @user.nickname %>さんのマイページ</p>
@@ -17,3 +19,6 @@
 <%= link_to 'ユーザー情報編集', edit_user_path, class: "user-nickname" %>
 <%# ユーザー投稿 %>
 <p>投稿一覧</p>
+
+
+<%= render "shared/second-footer"%>
