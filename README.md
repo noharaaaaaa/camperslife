@@ -31,7 +31,7 @@ has_many :posts
 |place               |string      |null: false                     |
 |price               |text        |                                |
 |person_id           |integer     |                                |
-|user                |references  |null: false, foreign_key: true  |
+|user_id             |references  |null: false, foreign_key: true  |
 
 ### Association
 has_many_attached :image
