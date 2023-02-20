@@ -1,8 +1,19 @@
 ユーザー詳細画面
 <%# ユーザー情報 %>
 <p><%= @user.nickname %>さんのマイページ</p>
-<p>名前　<%= @user.last_name %>　<%= @user.first_name %></p>
-<p><%= @user.profile_image %>さんの写真</p>
+<p>名前<br><%= @user.last_name %>　<%= @user.first_name %></p>
+<p>自己紹介<br><%= @user.profile %></p>
 
+
+<div class="profile_image_size">
+  <p>プロフィール画像<br>
+  <% if @user.profile_image.present? %>
+    <%= image_tag @user.profile_image,size: '100x100' %>
+  <% else %>
+    <%= image_tag "default_image.png", size: '100x100' %>
+  <% end %>
+  </p>
+</div>
+<%= link_to 'ユーザー情報編集', edit_user_path, class: "user-nickname" %>
 <%# ユーザー投稿 %>
 <p>投稿一覧</p>
