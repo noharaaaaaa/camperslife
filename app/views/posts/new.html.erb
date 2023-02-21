@@ -27,7 +27,7 @@
       <%= f.text_area :title, class:"items-text", id:"item-name", placeholder:"見出し（必須 40文字まで)", maxlength:"40" %>
       <div class="items-explain">
         <div class="weight-bold-text">
-          商品の説明
+          記事の内容
           <span class="indispensable">必須</span>
         </div>
         <%= f.text_area :article, class:"items-text", id:"item-info", placeholder:"記事の内容（必須 1,000文字まで）例）ふもとっぱらキャンプ場でソロキャンプしてきました！写真が綺麗に撮影できたので投稿します！" ,rows:"7" ,maxlength:"1000" %>
@@ -39,9 +39,8 @@
       <%= f.text_area :place, class:"items-text", id:"item-name", placeholder:"サイト名（必須 40文字まで)", maxlength:"40" %>
        <div class="weight-bold-text">
         キャンプサイトリンク
-        <span class="indispensable">必須</span>
       </div>
-      <%= f.text_area :link, class:"items-text", id:"item-name", placeholder:"サイト名（必須 40文字まで)", maxlength:"40" %>
+      <%= f.text_area :link, class:"items-text", id:"item-name", placeholder:"キャンプ場のホームページを張り付けてください", maxlength:"100" %>
     </div>
 
     <%# 下部ボタン %>
