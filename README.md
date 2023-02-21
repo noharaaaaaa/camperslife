@@ -31,6 +31,7 @@ has_one_attached :profile_image
 |title               |string      |null: false                     |
 |article             |text        |null: false                     |
 |place               |string      |null: false                     |
+|link                |string      |                                |
 |price               |string      |                                |
 |person_id           |integer     |                                |
 |user_id             |references  |null: false, foreign_key: true  |

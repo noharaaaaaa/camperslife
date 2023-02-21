@@ -1,3 +1,4 @@
+<%= render "shared/second-header"%>
 トップページ（仮）
 
  <% if user_signed_in? %>
@@ -7,6 +8,9 @@
   <li>
     <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
   </li>
+   <li>
+    <%= link_to "新規投稿", new_post_path %>
+  </li>
 <% else %>
   <li>
     <%= link_to "新規登録", new_user_registration_path %>
@@ -15,3 +19,32 @@
     <%= link_to "ログイン", new_user_session_path %>
   </li>
 <% end %>
+<p>投稿一覧</p>
+<% @posts.each do |post| %>
+  <ul class="posts-list">
+    <li class="list">
+    </li>
+      <p><%= link_to post.title, post_path(post.id) %></p>
+      <% post.images.each do |image| %>
+        <%= image_tag(image, width:150) %>
+      <% end %>
+    <li class="list">
+      <div class='item-name'>
+        <%= post.article %>
+      </div>
+    </li>
+
+    <li class="list">
+      <p>↓キャンプサイト情報↓</p>
+      <div class='item-name'>
+        <%= raw Rinku.auto_link(post.link) %>
+      </div>
+    </li>
+
+    <li class="list">
+    </li>
+  
+  </ul>
+<% end %>
+
+<%= render "shared/second-footer"%>

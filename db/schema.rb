@@ -37,12 +37,13 @@ ActiveRecord::Schema.define(version: 2023_02_20_144142) do
     t.string "title", null: false
     t.text "article", null: false
     t.string "place"
+    t.string "link"
     t.string "price"
     t.integer "perspn_id"
-    t.bigint "user_id_id", null: false
+    t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["user_id_id"], name: "index_posts_on_user_id_id"
+    t.index ["user_id"], name: "index_posts_on_user_id"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
