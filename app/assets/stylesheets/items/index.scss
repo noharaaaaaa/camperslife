@@ -291,6 +291,30 @@ a {
   font-size: 16px;
 }
 
+.post-user {
+  height: 60px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.post-user-info {
+}
+
+.post-info {
+  display: flex;
+  margin: 20px 0px 0px 10px ;
+}
+
+.post-icon {
+  margin-right: 50px;
+}
+
+.post-camp-info {
+  border: 1px solid black;
+  border-radius: 5px;
+}
+
 .sold-out {
   position: absolute;
   top: 40%;
