@@ -85,6 +85,12 @@
   font-weight: bold;
 }
 
+.new_post {
+  text-decoration: none;
+  color: #333333;
+  margin-left: 3vw;
+}
+
 
 .logout {
   text-decoration: none;

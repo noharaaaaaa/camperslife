@@ -22,6 +22,26 @@ class PostsController < ApplicationController
   def show
   end
 
+  def edit
+    @post = Post.find(params[:id])
+  end
+
+  def update
+    post = Post.find(params[:id])
+    if params[:post][:image_ids]
+      params[:post][:image_ids].each do |image_id|
+        image = post.images.find(image_id)
+        image.purge
+      end
+    end
+    if post.update_attributes(posts_params)
+      flash[:success] = "編集しました"
+      redirect_to posts_url
+    else
+      render :edit
+    end
+  end
+
   private
 
   def posts_params

@@ -1,50 +1,49 @@
-<%= render "shared/second-header"%>
-トップページ（仮）
-
- <% if user_signed_in? %>
-  <li>
-    <%= link_to current_user.nickname, "/users/#{current_user.id}", class: "user-nickname" %>
-  </li>
-  <li>
-    <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
-  </li>
-   <li>
-    <%= link_to "新規投稿", new_post_path %>
-  </li>
-<% else %>
-  <li>
-    <%= link_to "新規登録", new_user_registration_path %>
-  </li>
-  <li>
-    <%= link_to "ログイン", new_user_session_path %>
-  </li>
-<% end %>
-<p>投稿一覧</p>
-<% @posts.each do |post| %>
-  <ul class="posts-list">
-    <li class="list">
-    </li>
-      <p><%= link_to post.title, post_path(post.id) %></p>
-      <% post.images.each do |image| %>
-        <%= image_tag(image, width:150) %>
-      <% end %>
-    <li class="list">
-      <div class='item-name'>
-        <%= post.article %>
-      </div>
-    </li>
-
-    <li class="list">
+<%= render "shared/header" %>
+<div class='main'>
+  <div class='title-contents'>
+    <h3 class='service-title'>
+      キャンプ記事投稿サイト
+    </h3>
+    <p class='service-explain'>
+      CampersLifeで世界中の人と
+    </p>
+    <p class='service-explain'>
+      思い出を共有しましょう
+    </p>
+    <div class='store-btn'>
+      <%= link_to image_tag("app-store.svg", class:"apple-btn"), "#" %>
+      <%= link_to image_tag("google-play.png", class:"google-btn"), "#" %>
+    </div>
+  </div>
+  <div class="post-title">
+    <h3 class="post-name">投稿一覧</h3>
+  </div>
+  <ul class='item-lists'>
+    <% @posts.each do |post| %>
+    <div class="post-box">
+      <h3 class="item-name"><%= link_to post.title, post_path(post.id) %></h3>
+        <div class='item-img-content'>
+        <% post.images.each do |image| %>
+          <%= image_tag(image, height:200, class:"post-image-view") %>
+        <% end %>
+        </div>
       <p>↓キャンプサイト情報↓</p>
-      <div class='item-name'>
-        <%= raw Rinku.auto_link(post.link) %>
-      </div>
-    </li>
+      <li class="list">
+        <div class='post-link'>
+          <p>サイト名：<%= post.place %></p>
+        </div>
+      </li>
+      <li class="list">
+        <div class='post-link'>
+          <p>　リンク：<%= raw Rinku.auto_link(post.link) %></p>
+        </div>
+      </li>
 
-    <li class="list">
-    </li>
-  
+      <li class="list">
+      </li>
+    </div>
+    <% end %>
   </ul>
-<% end %>
+</div>
 
 <%= render "shared/second-footer"%>

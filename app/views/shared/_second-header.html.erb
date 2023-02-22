@@ -1,3 +1,21 @@
-<header class='second-header'>
-  <%= link_to image_tag("camp_logo.png", class:"second-logo"), "/" %>
+<header>
+<div class='second-header'>
+  <div class='second-header-logo'>
+    <%= link_to image_tag("camp_logo.png", class:"second-logo"), "/" %>
+  </div>
+    <div class='second-nav'>
+      <ul class='second-lists'>
+          <li><%= link_to 'TOPへ', "/", class: "second-list" %></li>
+          <li><%= link_to '投稿一覧', "/", class: "second-list" %></li>
+        <% if user_signed_in? %>
+          <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "second-list" %></li>
+          <li><%= link_to "新規投稿", new_post_path, class: "second-list" %></li>
+        <% else %>
+          <li><%= link_to 'ログイン', new_user_session_path, class: "second-list" %></li>
+          <li><%= link_to '新規登録', new_user_registration_path, class: "second-list" %></li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+
 </header>

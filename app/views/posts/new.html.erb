@@ -1,5 +1,6 @@
 <%= render "shared/second-header"%>
-新規投稿画面
+
+<div class="user-edit">
   <div class="items-sell-main">
     <h2 class="items-sell-title">投稿内容を入力</h2>
     <%= form_with model: @post, local: true do |f| %>
@@ -12,10 +13,13 @@
       </div>
       <div class="click-upload">
         <p>
-          クリックしてファイルをアップロード
+          クリックしてファイルをアップロード<br>
+          ※複数選択することで、まとめて写真を投稿できます。
         </p>
         <%= f.file_field :images, multiple: true %>
       </div>
+        <br>
+        <p class="caution-message">※写真の拡張子が png もしくは jpeg 以外の場合、<br>うまく表示されないことがあります。</p>
     </div>
 
     <%# 商品名と商品説明 %>
@@ -36,11 +40,29 @@
         場所
         <span class="indispensable">必須</span>
       </div>
-      <%= f.text_area :place, class:"items-text", id:"item-name", placeholder:"サイト名（必須 40文字まで)", maxlength:"40" %>
-       <div class="weight-bold-text">
-        キャンプサイトリンク
+      <%= f.text_area :place, class:"items-text", id:"item-name", placeholder:"キャンプサイト名（必須 40文字まで)", maxlength:"40" %>
+      <div class="weight-bold-text">
+        キャンプ場リンク
       </div>
-      <%= f.text_area :link, class:"items-text", id:"item-name", placeholder:"キャンプ場のホームページを張り付けてください", maxlength:"100" %>
+      <%= f.text_area :link, class:"items-text", id:"item-name", placeholder:"キャンプ場リンク（https://〜)", maxlength:"100" %>
+      <div class="weight-bold-text">
+        予算
+      </div>
+      <%= f.text_area :price, class:"items-text", id:"item-name", placeholder:"宿泊料（円）", maxlength:"20" %>
+      <div class="weight-bold-text">
+        人数
+      </div>
+      <%= f.text_area :hoge, class:"items-text", id:"item-name", placeholder:"キャンプ場リンク（https://〜)", maxlength:"100" %>
+    </div>
+
+    <div class="items-detail">
+      <div class="weight-bold-text">商品の詳細</div>
+      <div class="form">
+        <div class="weight-bold-text">
+          カテゴリー
+          <span class="indispensable">必須</span>
+        </div>
+      </div>
     </div>
 
     <%# 下部ボタン %>
@@ -51,7 +73,6 @@
 
     <% end %>
   </div>
-
-
+</div>
 
 <%= render "shared/second-footer"%>
