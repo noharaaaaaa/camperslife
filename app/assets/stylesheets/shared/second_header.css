@@ -2,10 +2,31 @@
   width: 100%;
   min-width: 800px;
   height: 130px;
-  background-color: #f5f5f5;
+  background-color: white;
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
+}
+
+.second-nav {
+  width: 100%-100px ;
+  height: 100px;
+  font-size: 18px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.second-lists {
+  display: flex;
+  justify-content: space-around;
+}
+
+.second-list {
+  text-decoration: none;
+  margin: 0px 20px;
+  color: #333333;
 }
 
 .second-logo {

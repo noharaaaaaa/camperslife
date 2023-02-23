@@ -1,0 +1,62 @@
+<%= render "shared/second-header"%>
+
+<%# 商品の概要 %>
+<%= form_with(model: @post, local: true) do |f| %>
+<div class="item-show">
+  <div class="item-box-show">
+    <div class="item-img-content">
+      <% if @post.images.present? %>
+        <% @post.images.each do |image| %>
+          <%= image_tag(image, width:150, class:"post-image-view") %> <br>
+        <% end %>
+      <% end %>
+    </div>
+
+    <div class="item-name">
+      <%= @post.title %>
+    </div>
+
+    <div class="item-explain-box">
+      <%= @post.article %>
+    </div>
+
+    <div class="post-camp-info">
+      <p>↓キャンプサイト情報↓</p>
+      <li class="list">
+        <div class='post-link'>
+          <p>サイト名：<%= @post.place %></p>
+        </div>
+      </li>
+      <li class="list">
+        <div class='post-link'>
+          <p>　リンク：<%= raw Rinku.auto_link(@post.link) %></p>
+        </div>
+      </li>
+    </div>
+
+  </div>
+  <div class="item-price-box">
+    <span class="post-price">
+      <%= @post.price %>円
+    </span>
+  </div>
+
+
+  <%# ログインユーザーと出品者が同じ場合 %>
+    <div class="sell-btn-contents">
+      <% if current_user.id == @post.user_id %>
+        <div class="btn-position">
+          <%= link_to "投稿内容の編集", edit_post_path, method: :get, class: "item-red-btn" %>
+        </div>
+        <div class="btn-position">
+          <%= link_to "削除", post_path, method: :delete, class:"item-destroy" %>
+        </div>
+        <div class="btn-position">
+          <%= link_to 'もどる', :back , class:"back-btn" %>
+        </div>
+      <% end %>
+    </div>
+</div>
+<% end %>
+
+<%= render "shared/second-footer"%>

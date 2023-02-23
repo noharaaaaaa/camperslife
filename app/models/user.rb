@@ -10,7 +10,7 @@ class User < ApplicationRecord
   validates :first_name_kana, presence: true, format: { with: /\A[ァ-ヶー]+\z/ }
   validates :last_name_kana, presence: true, format: { with: /\A[ァ-ヶー]+\z/ }
 
-  #has_many :posts, dependent: :destroy
+  has_many :posts, dependent: :destroy
   has_one_attached :profile_image
 
   #def get_profile_image
