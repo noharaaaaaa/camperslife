@@ -38,7 +38,19 @@ has_one_attached :profile_image
 
 ### Association
 has_many_attached :images
+has_many :comments
 belongs_to :user
+
+## commentsテーブル
+| Column             | Type       | Options                        |
+|:---                |:---        |:---                            |
+|user_id             |integer     |null: false                     |
+|post_id             |integer     |null: false                     |
+|text                |text        |null: false                     |
+
+### Association
+belongs_to :user
+belongs_to :post
 
 ## goodsテーブル（いいね機能実装予定）
 | Column             | Type       | Options                        |
