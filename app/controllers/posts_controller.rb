@@ -23,7 +23,6 @@ class PostsController < ApplicationController
   end
 
   def edit
-    @post = Post.find(params[:id])
   end
 
   def update
@@ -40,6 +39,9 @@ class PostsController < ApplicationController
     else
       render :edit
     end
+  end
+
+  def destroy
   end
 
   private

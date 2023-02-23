@@ -1,9 +1,11 @@
 a {
   text-decoration: none;
+  color: black;
 }
 
 .main {
   background: #e8f7db;
+  padding-bottom: 20px;
 }
 
 /* 画面上部の「人生を変えるフリマアプリ」帯部分 */
@@ -219,6 +221,7 @@ a {
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-top: 20px;
 }
 
 .post-name {
@@ -261,13 +264,21 @@ a {
   background-color: #FFF;
 }
 
-.post-box {
+.post-screen {
+  width: 520px;
+  height: 470px;
+  border-radius: 20px;
+  background-color: #FFF;
   margin: 10px 20px;
+}
+
+.post-box {
+  margin: 10px 10px;
   padding: 10px;
   background-color: #FFF;
   overflow-y: scroll;
   width: 500px;
-  height: 400px;
+  height: 450px;
 }
 
 
@@ -292,22 +303,31 @@ a {
 }
 
 .post-user {
-  height: 60px;
+  height: 80px;
   display: flex;
+  justify-content: space-around;
   align-items: center;
   margin-bottom: 10px;
 }
 
 .post-user-info {
+  width: 200px;
+  display: flex;
+  align-items: center;
+}
+
+.post-user-name {
 }
 
 .post-info {
   display: flex;
-  margin: 20px 0px 0px 10px ;
+  justify-content: space-between;
+  align-items: center;
+  margin: 20px 10px 0px 30px ;
 }
 
 .post-icon {
-  margin-right: 50px;
+  margin-left: 30px;
 }
 
 .post-camp-info {
@@ -338,7 +358,10 @@ a {
 }
 
 .item-name {
-  font-size: 2.5vh;
+  font-size: 3.0vh;
+  margin-left: 20px;
+  text-decoration: none;
+  color: black;
 }
 
 .item-price {

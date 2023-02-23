@@ -34,7 +34,7 @@
           記事の内容
           <span class="indispensable">必須</span>
         </div>
-        <%= f.text_area :article, class:"items-text", id:"item-info", placeholder:"記事の内容（必須 1,000文字まで）例）ふもとっぱらキャンプ場でソロキャンプしてきました！写真が綺麗に撮影できたので投稿します！" ,rows:"7" ,maxlength:"1000" %>
+        <%= f.text_area :article, class:"items-article", id:"item-info", placeholder:"記事の内容（必須 1,000文字まで）例）ふもとっぱらキャンプ場でソロキャンプしてきました！写真が綺麗に撮影できたので投稿します！" ,rows:"7" ,maxlength:"1000" %>
       </div>
       <div class="weight-bold-text">
         場所
@@ -47,28 +47,20 @@
       <%= f.text_area :link, class:"items-text", id:"item-name", placeholder:"キャンプ場リンク（https://〜)", maxlength:"100" %>
       <div class="weight-bold-text">
         予算
+        <span class="indispensable">数値のみ入力してください</span>
       </div>
       <%= f.text_area :price, class:"items-text", id:"item-name", placeholder:"宿泊料（円）", maxlength:"20" %>
       <div class="weight-bold-text">
         人数
       </div>
-      <%= f.text_area :hoge, class:"items-text", id:"item-name", placeholder:"キャンプ場リンク（https://〜)", maxlength:"100" %>
+      <%= f.text_area :hoge, class:"items-text", id:"item-name", placeholder:"実施人数", maxlength:"20" %>
     </div>
 
-    <div class="items-detail">
-      <div class="weight-bold-text">商品の詳細</div>
-      <div class="form">
-        <div class="weight-bold-text">
-          カテゴリー
-          <span class="indispensable">必須</span>
-        </div>
-      </div>
-    </div>
 
     <%# 下部ボタン %>
     <div class="sell-btn-contents">
       <%= f.submit "投稿する" ,class:"sell-btn" %>
-      <%=link_to 'もどる', root_path, class:"back-btn" %>
+      <%=link_to 'もどる', :back , class:"back-btn" %>
     </div>
 
     <% end %>
