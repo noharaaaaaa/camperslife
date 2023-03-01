@@ -20,8 +20,8 @@ class PostsController < ApplicationController
   end
 
   def show
-    @comment = Comment.new
     @comments = @post.comments.includes(:user)
+    @comment = Comment.new
   end
 
   def edit
@@ -33,7 +33,7 @@ class PostsController < ApplicationController
       image.purge
     end
     if @post.update_attributes(posts_params)
-      redirect_to posts_url
+      redirect_to action: :show
     else
       render :edit
     end

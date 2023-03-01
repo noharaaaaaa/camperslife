@@ -1,8 +1,10 @@
 class CommentsController < ApplicationController
 
   def create
-    comment = Comment.create(comment_params)
-    redirect_to "/posts/#{comment.post.id}"
+    comment = Comment.new(comment_params)
+    if @comment.save
+      redirect_to post_path(params[:post_id])
+    end
   end
 
   private
