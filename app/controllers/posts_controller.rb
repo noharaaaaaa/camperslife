@@ -20,22 +20,20 @@ class PostsController < ApplicationController
   end
 
   def show
+    @comments = @post.comments.includes(:user)
+    @comment = Comment.new
   end
 
   def edit
   end
 
   def update
-    post = Post.find(params[:id])
-    if params[:post][:image_ids]
-      params[:post][:image_ids].each do |image_id|
-        image = post.images.find(image_id)
-        image.purge
-      end
+    if params[:image_id].present?
+      image = post.images&find(image_id)
+      image.purge
     end
-    if post.update_attributes(posts_params)
-      flash[:success] = "編集しました"
-      redirect_to posts_url
+    if @post.update_attributes(posts_params)
+      redirect_to action: :show
     else
       render :edit
     end
