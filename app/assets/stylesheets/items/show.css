@@ -1,4 +1,7 @@
 /* 商品の概要 */
+li {
+  list-style: none;
+}
 
 .item-show {
   background-color: #f8f8f8;

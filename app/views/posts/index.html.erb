@@ -39,16 +39,15 @@
               </div>
             </div>
             <div class="post-info">
-              <%= link_to image_tag("comment.png", size: '25x25', class:"post-icon"), "#" %>
-              <%= link_to image_tag("star-white.png", size: '25x25', class:"post-icon"), "#" %>
-              <%= link_to image_tag("good-white.png", size: '25x25', class:"post-icon"), "#" %>
+              <%= link_to image_tag("comment.png", size: '25x25', class:"post-icon"), "#" %>　
+              <%= link_to "#{post.comments.count} コメント", post_path(post.id) %>
             </div>
           </div>
           <div class="post-camp-info">
-            <p>↓キャンプサイト情報↓</p>
+            <p>　↓キャンプサイト情報↓</p>
             <li class="list">
             <div class='post-link'>
-              <p>サイト名：<%= post.place %></p>
+              <p>　サイト名：<%= post.place %></p>
             </div>
             </li>
             <li class="list">
@@ -56,6 +55,8 @@
               <p>　リンク：<%= raw Rinku.auto_link(post.link) %></p>
             </div>
             </li>
+
+
           </div>
         </div>
       </div>
