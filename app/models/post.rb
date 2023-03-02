@@ -16,4 +16,7 @@ class Post < ApplicationRecord
     validates :user_id
   end
 
+  geocoded_by :address
+  after_validation :geocode
+
 end

@@ -62,3 +62,5 @@ gem 'rinku'
 #Google Maps API
 gem 'gmaps4rails'
 gem 'geocoder'
+
+gem 'kaminari','~> 1.2.1'
