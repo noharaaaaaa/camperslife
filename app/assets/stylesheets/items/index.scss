@@ -8,6 +8,45 @@ a {
   width: 400px;
 }
 
+.slide {
+  position   : relative;
+  overflow   : hidden;
+                    /* 画像のサイズに合わせて変更ください */
+  width      : 200px;
+  height     : 200px;
+  margin     : auto;      /* サンプルは中央寄せの背景：白 */
+  background : #fff;
+}
+
+.slide img {
+  display    : block;
+  position   : absolute;
+                      /* 画像のサイズを表示エリアに合せる */
+  width      : inherit;
+  height     : inherit;
+  left       : -100%;
+  animation  : slideAnime 15s ease infinite;
+}
+
+.slide img:nth-of-type(1) { animation-delay: 0s }
+.slide img:nth-of-type(2) { animation-delay: 3s }
+.slide img:nth-of-type(3) { animation-delay: 6s }
+.slide img:nth-of-type(4) { animation-delay: 9s }
+.slide img:nth-of-type(5) { animation-delay: 12s }
+
+@keyframes slideAnime{
+  0% { left: -100% }
+  2% { left: 0     }
+ 18% { left: 0     }
+ 20% { left: 100%  }
+100% { left: 100%  }
+}
+
+.top-image {
+  display: flex;
+  width: 70vw;
+}
+
 .main {
   background: #e8f7db;
   padding-bottom: 20px;
@@ -15,6 +54,7 @@ a {
 
 /* 画面上部の「人生を変えるフリマアプリ」帯部分 */
 .title-contents {
+  height: 400px;
   width: 100vw;
   background-image: image-url('toppg.png');
   background-size: cover;

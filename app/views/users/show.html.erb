@@ -36,9 +36,11 @@
       <p>自己紹介</p><%= @user.profile %>
     </div>
     <div>
+    <br>
       <% if current_user.id == @user.id %>
-        <%= link_to 'ユーザー情報編集', edit_user_path, class: "user-nickname" %>
+        <%= link_to '＜ユーザー情報編集＞', edit_user_path, class: "user-nickname" %>
       <% end %>
+    <br>
     </div>
     <div>
       <p>投稿一覧</p>
@@ -82,6 +84,7 @@
         </div>
       </div>
       <% end %>
+      <%= paginate @posts %>
     </div>
   </div>
 <%# ユーザー投稿 %>
