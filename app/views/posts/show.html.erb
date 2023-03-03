@@ -5,39 +5,57 @@
 <%= form_with(model: @post, local: true) do |f| %>
 <div class="item-show">
   <div class="item-box-show">
-    <div class="item-img-content">
-      <% if @post.images.present? %>
-        <% @post.images.each do |image| %>
-          <%= image_tag(image, width:150, class:"post-image-view") %> <br>
-        <% end %>
-      <% end %>
-    </div>
 
-    <div class="item-name">
+    <div class="show-name">
       <%= @post.title %>
     </div>
 
-    <div class="item-explain-box">
-      <%= @post.article %>
+    <div class="show-img-content">
+      <% if @post.images.present? %>
+        <% @post.images.each do |image| %>
+          <%= image_tag(image, height:350, class:"post-image-view") %> <br>
+        <% end %>
+      <% end %>
     </div>
-
-    <div class="post-camp-info">
-      <p>　↓キャンプサイト情報↓</p>
-      <li class="list">
-        <div class='post-link'>
-          <p>　サイト名：<%= @post.place %></p>
+    <div class="post-information">
+      <div class="article-good-box">
+        <div class="article-box">
+          <%= @post.article %>
         </div>
-      </li>
-      <li class="list">
-        <div class='post-link'>
-          <p>　リンク：<%= raw Rinku.auto_link(@post.link) %></p>
+        <div class="good">
+          <% if @post.gooded_by?(current_user) %>
+          <p>
+          <%= link_to post_goods_path(@post), method: :delete do %>
+            <span class="goodmark">♥</span><%= @post.goods.count %> いいね
+          <% end %>
+          </p>
+          <% else %>
+          <p>
+          <%= link_to post_goods_path(@post), method: :post do %>
+            <span class="goodmark">♡</span><%= @post.goods.count %> いいね
+          <% end %>
+          </p>
+          <% end %>
         </div>
-      </li>
-      <div class="list">
-        <span class="post-link">
-          　宿泊費：<%= @post.price %>円
-        </span>
       </div>
+
+      <div class="camp-info">
+        <p>　↓キャンプサイト情報↓</p>
+        <li class="list">
+          <div class='post-link'>
+            <p>　サイト名：<%= @post.place %></p>
+          </div>
+        </li>
+        <li class="list">
+          <div class='post-link'>
+            <p>　リンク：<%= raw Rinku.auto_link(@post.link) %></p>
+          </div>
+        </li>
+        <div class="list">
+          <span class="post-link">
+            　宿泊費：<%= @post.price %>円
+          </span>
+        </div>
 
       <%# Googla Map %>
       <h3>Google Map</h3>
@@ -77,39 +95,26 @@
           <script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['API_KEY'] %>&callback=initMap" async defer></script>
       </div>
     </div>
-    <div class="good">
-      <% if @post.gooded_by?(current_user) %>
-      <p>
-        <%= link_to post_goods_path(@post), method: :delete do %>
-          ♥<%= @post.goods.count %> いいね
-        <% end %>
-      </p>
-      <% else %>
-      <p>
-        <%= link_to post_goods_path(@post), method: :post do %>
-          ♡<%= @post.goods.count %> いいね
-        <% end %>
-      </p>
-      <% end %>
     </div>
+
 
 
 
     <%# コメント一覧 %>
-    <div class="container">
+    <div class="comment">
     <% if user_signed_in? %>
       <%= form_with(model: [@post, @comment]) do |form| %>
-        <%= form.text_area :text, placeholder: "コメントする", rows: "2" %>
-        <%= form.submit "SEND" %>
+        <%= form.text_area :text, placeholder: "コメントする", rows: "2", class: "form-comment" %>
+        <%= form.submit "投稿", class: "comment-submit" %>
       <% end %>
     <% else %>
       <strong><p>※※※ コメントの投稿には新規登録/ログインが必要です ※※※</p></strong>
     <% end %>
+    </div>
     <div class="comments">
       <h4>＜コメント一覧＞</h4>
       
     </div>
-  </div>
     <div class="sell-btn-contents">
       <% if current_user.id == @post.user_id %>
         <div class="btn-position">
