@@ -1,4 +1,5 @@
 <%= render "shared/second-header"%>
+<%#= javascript_include_tag 'map.js' %>
 
 <div class="user-edit">
   <div class="items-sell-main">
@@ -45,6 +46,13 @@
         キャンプ場リンク
       </div>
       <%= f.text_area :link, class:"items-text", id:"item-name", placeholder:"キャンプ場リンク（https://〜)", maxlength:"100" %>
+
+      <%# googlemap %>
+      <div class="form-group">
+        <%#= f.label :address, class: "form-label fw-bold"%>
+        <%#= f.text_field :address, autofocus: true,placeholder: "住所を入力してください", class: "form-control" %>
+      </div> 
+
       <div class="weight-bold-text">
         予算
         <span class="indispensable">数値のみ入力してください</span>

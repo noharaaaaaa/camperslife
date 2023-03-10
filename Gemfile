@@ -58,3 +58,9 @@ gem 'mini_magick'
 gem 'image_processing', '~> 1.2'
 gem 'pry-rails'
 gem 'rinku'
+
+#Google Maps API
+gem 'gmaps4rails'
+gem 'geocoder'
+
+gem 'kaminari','~> 1.2.1'

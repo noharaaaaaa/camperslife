@@ -1,4 +1,11 @@
 /* 商品の概要 */
+li {
+  list-style: none;
+}
+
+.goodmark {
+  color: #ea352d;
+}
 
 .item-show {
   background-color: #f8f8f8;
@@ -53,11 +60,12 @@
 .item-red-btn {
   text-align: center;
   background-color: #ea352d;
-  font-size: 24px;
   font-weight: bold;
   color: #FFF;
+  font-size: 20px;
   margin: 20px 0px;
-  padding: 2vh 10vw;
+  padding: 15px;
+  border-radius: 10px;
 }
 
 .or-text {
@@ -67,10 +75,11 @@
 .item-destroy {
   background-color: lightgray;
   text-align: center;
-  font-size: 24px;
   color: black;
+  font-size: 20px;
   margin: 20px 0px;
-  padding: 2vh 10vw;
+  padding: 15px;
+  border-radius: 10px;
 }
 
 .item-explain-box {
@@ -207,5 +216,5 @@
 }
 
 .btn-position {
-  margin: 20px;
+  margin: 25px;
 }

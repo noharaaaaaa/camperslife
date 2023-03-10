@@ -3,6 +3,66 @@ a {
   color: black;
 }
 
+.pagination>li>a {          
+  border: none;     
+  color: #696969;   
+}
+
+.pagination>.active>a {     
+  background: #93c9ff;     
+  border-radius: 15px;     
+}
+
+.pagination>li>a:hover {        
+  border-radius: 15px;   
+}
+
+
+.map {
+  height: 300px;
+  width: 400px;
+}
+
+.slide {
+  position   : relative;
+  overflow   : hidden;
+                    /* 画像のサイズに合わせて変更ください */
+  width      : 250px;
+  height     : 175px;
+  margin     : 10px;      /* サンプルは中央寄せの背景：白 */
+  background-color: transparent;
+}
+
+.slide img {
+  display    : block;
+  position   : absolute;
+                      /* 画像のサイズを表示エリアに合せる */
+  width      : inherit;
+  height     : inherit;
+  left       : -100%;
+  animation  : slideAnime 30s ease infinite;
+}
+
+.slide img:nth-of-type(1) { animation-delay: 0s }
+.slide img:nth-of-type(2) { animation-delay: 6s }
+.slide img:nth-of-type(3) { animation-delay: 12s }
+.slide img:nth-of-type(4) { animation-delay: 18s }
+.slide img:nth-of-type(5) { animation-delay: 24s }
+
+@keyframes slideAnime{
+  0% { left: -100% }
+ 10% { left: 0     }
+ 10% { left: 0     }
+ 20% { left: 100%  }
+100% { left: 100%  }
+}
+
+.top-image {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+}
+
 .main {
   background: #e8f7db;
   padding-bottom: 20px;
@@ -10,6 +70,7 @@ a {
 
 /* 画面上部の「人生を変えるフリマアプリ」帯部分 */
 .title-contents {
+  height: 400px;
   width: 100vw;
   background-image: image-url('toppg.png');
   background-size: cover;
@@ -18,8 +79,7 @@ a {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  justify-content: center;
-  padding: 5vh 15vw;
+  padding: 5vh 5vw;
   color: #fff;
   text-shadow: 0 0 5px rgba(0, 0, 0, 0.9);
 }
@@ -281,6 +341,20 @@ a {
   height: 450px;
 }
 
+.item-box-show {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.show-img-content {
+  position: relative;
+  display: flex;
+  height: 370px;
+  width: 70%;
+  overflow-y: scroll;
+  margin-bottom: 30px;
+}
 
 .item-img-content {
   position: relative;
@@ -289,13 +363,88 @@ a {
   overflow-x: scroll;
 }
 
+.post-show {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
 .post-image-view {
   margin-left: 10px;
+}
+
+.item-box-image {
+  
 }
 
 .item-img {
   width: 33vh;
   height: 33vh;
+}
+
+.post-information {
+  display: flex;
+  justify-content: center;
+
+}
+
+.show-name {
+  font-size: 20px;
+  margin: 10px;
+  background: linear-gradient(transparent 75%, #faf8d1 75%);
+}
+
+.article-good-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 35vw;
+  background: #e3fae4;
+  box-shadow: 0px 0px 0px 5px #e5fbdf;
+  border: dashed 2px #dffbe1;
+  border-radius: 8px;
+  margin-right: 10px;
+  padding: 10px;
+}
+
+.article-box {
+
+}
+
+.camp-info {
+  margin-left: 10px;
+  background: #d6ebff;
+  box-shadow: 0px 0px 0px 5px #d6ebff;
+  border: dashed 2px white;
+  padding: 10px;
+}
+
+.form-comment {
+  margin: 10px;
+  width: 60%;
+}
+
+.comment {
+  width: 80%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 5px;
+  height: 50px;
+}
+
+.comment-submit {
+  width: 5%;
+  height: 30px;
+  height: 50px;
+}
+
+.comments {
+  height: 200px;
+  width: 70%;
+  padding: 5px;
+  margin: 5px;
+  border: double 5px black;
 }
 
 .post-link {
@@ -314,9 +463,6 @@ a {
   width: 200px;
   display: flex;
   align-items: center;
-}
-
-.post-user-name {
 }
 
 .post-info {

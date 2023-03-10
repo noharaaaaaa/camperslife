@@ -1,9 +1,9 @@
 class PostsController < ApplicationController
 
-  before_action :post_find, only: [:show, :edit, :update, :destroy]
+  before_action :post_find, only: [:show, :edit, :update, :update, :destroy]
 
   def index
-    @posts = Post.order("created_at DESC")
+    @posts = Post.order(updated_at: :desc).page(params[:page])
   end
 
   def new
@@ -28,18 +28,24 @@ class PostsController < ApplicationController
   end
 
   def update
-    if params[:image_id].present?
-      image = post.images&find(image_id)
-      image.purge
-    end
-    if @post.update_attributes(posts_params)
-      redirect_to action: :show
+    if @post.update(posts_params)
+      redirect_to @post
     else
-      render :edit
+      render 'edit'
     end
+    #if params[:image_id].present?
+      #image = post.images&find(image_id)
+      #image.purge
+    #end
+    #if @post.update_attributes(posts_params)
+      #redirect_to action: :show
+    #else
+      #render :edit
+    #end
   end
 
   def destroy
+    redirect_to action: :index
   end
 
   private
